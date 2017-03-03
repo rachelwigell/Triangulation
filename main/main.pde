@@ -1,6 +1,6 @@
 /* @pjs preload="Grace Hopper.jpg"; */  
 
-float gridSize = 8;
+gridSize = 8;
 float tryInc = 10;
 yGridSize = 7;
 xGridSize = 5;
@@ -10,6 +10,7 @@ PImage graceHopper = loadImage("Grace Hopper.jpg");
 final int fieldX = graceHopper.width;
 final int fieldY = graceHopper.height;
 Vector2D[][] grid;
+simpleMode = $('#render_mode').is(":checked");
 
 public void setup(){
   noStroke();
@@ -17,7 +18,8 @@ public void setup(){
   size(fieldX, fieldY, P2D);
   background(255);
   image(graceHopper, 0, 0);
-  setupBalancedGrid();
+  if(simpleMode) setupHomogenousGrid();
+  else setupBalancedGrid();
   drawTriangles();
 }
 
