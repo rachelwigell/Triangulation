@@ -2,30 +2,32 @@
 
 float gridSize = 8;
 float tryInc = 10;
-float yGridSize = 7;
-float xGridSize = 5;
+yGridSize = 7;
+xGridSize = 5;
 int gridX;
 int gridY;
 PImage graceHopper = loadImage("Grace Hopper.jpg");
 final int fieldX = graceHopper.width;
 final int fieldY = graceHopper.height;
-console.log(graceHopper.width, graceHopper.height);
 Vector2D[][] grid;
 
 public void setup(){
+  noStroke();
+  frameRate(1);
   size(fieldX, fieldY, P2D);
   background(255);
-  gridX = ceil(fieldX/xGridSize);
-  gridY = ceil(fieldY/yGridSize);
+  image(graceHopper, 0, 0);
   setupBalancedGrid();
   drawTriangles();
 }
 
 public void draw(){
-
+  drawTriangles();
 }
 
 public void setupHomogenousGrid(){
+  gridX = ceil(fieldX/gridSize);
+  gridY = ceil(fieldY/gridSize);
   grid = new Vector2D[gridX][gridY];
   for(int y = 0; y < gridY; y++){
     for(int x = 0; x < gridX; x++){
@@ -82,6 +84,8 @@ public int[] topValuesForEdgeDetectingGrid(HashMap gradToXVal){
 }
 
 public void setupBalancedGrid(){
+  gridX = ceil(fieldX/xGridSize);
+  gridY = ceil(fieldY/yGridSize);
   grid = new Vector2D[gridX][gridY];
   int k = 0;
   for(int y = 0; k < gridY; y += yGridSize){
@@ -146,7 +150,6 @@ public void drawGridPoints(boolean showImage, boolean dynamicColor){
 }
 
 public void drawTriangles(){
-  noStroke();
   int i = 1;
   int j = 1;
   while(j < gridY-2){
