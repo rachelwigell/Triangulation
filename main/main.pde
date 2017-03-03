@@ -18,8 +18,16 @@ public void setup(){
   size(fieldX, fieldY, P2D);
   background(255);
   image(graceHopper, 0, 0);
-  if(simpleMode) setupHomogenousGrid();
-  else setupBalancedGrid();
+  if(simpleMode){
+    $('#edge_detect_mode_sliders').hide()
+    $('#simple_mode_slider').show();
+    setupHomogenousGrid();
+  }
+  else{
+    $('#edge_detect_mode_sliders').show()
+    $('#simple_mode_slider').hide();
+    setupBalancedGrid();
+  }
   drawTriangles();
 }
 
