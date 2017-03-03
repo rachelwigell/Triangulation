@@ -1,4 +1,4 @@
-/* @pjs preload="http://smartnews.bg/wp-content/uploads/Grace-Hopper.jpg"; */  
+/* @pjs preload="graceHopper.jpg"; */  
 
 float gridSize = 8;
 float tryInc = 10;
@@ -6,43 +6,23 @@ float yGridSize = 7;
 float xGridSize = 5;
 int gridX;
 int gridY;
-PImage graceHopper = requestImage("http://smartnews.bg/wp-content/uploads/Grace-Hopper.jpg");
+PImage graceHopper = loadImage("graceHopper.jpg");
+final int fieldX = graceHopper.width;
+final int fieldY = graceHopper.height;
+console.log(graceHopper.width, graceHopper.height);
 Vector2D[][] grid;
-int fieldX;
-int fieldY;
-int loaded = -1;
-console.log(loaded);
 
 public void setup(){
-  console.log("setting up");
-  size(100, 100);
+  size(fieldX, fieldY, P2D);
+  background(255);
+  gridX = ceil(fieldX/xGridSize);
+  gridY = ceil(fieldY/yGridSize);
+  setupBalancedGrid();
+  drawTriangles();
 }
 
 public void draw(){
-  console.log("drawing");
-  console.log(graceHopper.width);
-  if (graceHopper.width == 0) {
-    // Image is not yet loaded
-  } else if (graceHopper.width == -1) {
-    // This means an error occurred during image loading
-  } else {
-    // Image is ready to go, draw it
-    fieldX = graceHopper.width;
-    fieldY = graceHopper.height;
-    loaded = 0;
-    console.log(loaded);
-  }
-  if(loaded == 0){
-    console.log(fieldX, fieldY);
-    size(fieldX, fieldY, P2D);
-    background(255);
-    gridX = ceil(fieldX/xGridSize);
-    gridY = ceil(fieldY/yGridSize);
-    setupBalancedGrid();
-    drawTriangles();
-    loaded = 1;
-    console.log(loaded);
-  }
+
 }
 
 public void setupHomogenousGrid(){
