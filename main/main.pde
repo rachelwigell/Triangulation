@@ -6,7 +6,7 @@ float yGridSize = 7;
 float xGridSize = 5;
 int gridX;
 int gridY;
-PImage graceHopper = loadImage("graceHopper.jpg");
+PImage graceHopper = loadImage("Grace Hopper.jpg");
 final int fieldX = graceHopper.width;
 final int fieldY = graceHopper.height;
 console.log(graceHopper.width, graceHopper.height);
