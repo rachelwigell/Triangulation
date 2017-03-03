@@ -170,4 +170,4 @@ public void drawTriangles(){
     triangle(point1.x, point1.y, point2.x, point2.y, point3.x, point3.y);
     i++;
   }
-}PImage i;
+}
