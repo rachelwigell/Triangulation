@@ -1,4 +1,4 @@
-/* @pjs preload="graceHopper.jpg"; */  
+/* @pjs preload="Grace Hopper.jpg"; */  
 
 float gridSize = 8;
 float tryInc = 10;
