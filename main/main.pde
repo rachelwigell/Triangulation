@@ -171,14 +171,3 @@ public void drawTriangles(){
     i++;
   }
 }PImage i;
-void setup() {
-  size(164, 164);
-  int ID = int(random(11000, 13000));
-  i = loadImage("http" + "://www.flaticon.com/png/64/" + ID + ".png");
-}
-void draw() {
-  if(i.width > 0) {
-    image(i, 50, 50);
-    noLoop();
-  }
-}
